@@ -68,4 +68,4 @@ if (Lambda < Mu1) and (Lambda < Mu2) and (Lambda < Mu3):
 
 
 ## Result
-
+Therefore the program for Series Queues with infinite capacity - Open Jackson Network was executed successfully.

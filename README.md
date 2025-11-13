@@ -20,8 +20,52 @@ Visual components and Python
 
 
 ## Program
+```
 
+import math
+
+ArrivalTime = float(input("Enter the mean inter arrival time of objects from Feeder (in secs): "))
+ServiceTime1 = float(input("Enter the mean inter service time of Lathe Machine 1 (in secs): "))
+ServiceTime2 = float(input("Enter the mean inter service time of Lathe Machine 2 (in secs): "))
+ServiceTime3 = float(input("Enter the mean inter service time of Lathe Machine 3 (in secs): "))
+RobotTime = float(input("Enter the Additional time taken for the Robot (in secs): "))
+
+Lambda = 1 / ArrivalTime
+Mu1 = 1 / (ServiceTime1 + RobotTime)
+Mu2 = 1 / (ServiceTime2 + RobotTime)
+Mu3 = 1 / (ServiceTime3 + RobotTime)
+
+print("Series Queues with Infinite Capacity - Open Jackson Network")
+print("The mean arrival rate per second               : %0.2f" % Lambda)
+print("The mean service rate per second of Lathe 1    : %0.2f" % Mu1)
+print("The mean service rate per second of Lathe 2    : %0.2f" % Mu2)
+print("The mean service rate per second of Lathe 3    : %0.2f" % Mu3)
+
+
+if (Lambda < Mu1) and (Lambda < Mu2) and (Lambda < Mu3):
+    # Calculating performance metrics for each server
+    Ls1 = Lambda / (Mu1 - Lambda)
+    Ls2 = Lambda / (Mu2 - Lambda)
+    Ls3 = Lambda / (Mu3 - Lambda)
+
+    Ls = Ls1 + Ls2 + Ls3 
+
+    Lq1 = Ls1 - Lambda / Mu1
+    Lq2 = Ls2 - Lambda / Mu2
+    Lq3 = Ls3 - Lambda / Mu3
+
+    Wq1 = Lq1 / Lambda
+    Wq2 = Lq2 / Lambda
+    Wq3 = Lq3 / Lambda
+
+    Ws = Ls / (3 * Lambda)
+```
 
 ## Output
+<img width="847" height="265" alt="Screenshot 2025-11-13 161034" src="https://github.com/user-attachments/assets/1a124da7-a33c-4cfa-9a8e-5b1fc77aed73" />
+
+<img width="807" height="284" alt="Screenshot 2025-11-13 161023" src="https://github.com/user-attachments/assets/147b1645-9cbd-4476-8a1b-c6dc1b84813a" />
+
 
 ## Result
+
